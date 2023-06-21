@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bank Account List</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/menu"></th:block>
+
+
+
+	<div class="container my-2">
+	
+	<h1>User List</h1>
+	
+		<div class="d-flex justify-content-start p-2">
+			<a class="list-group-item mr-2"	th:each="user : ${userList}"
+				th:text="${user.firstname}" href="#" th:href="@{'/getBankAccount/' + ${user.userId}}"></a>
+		</div>
+		
+		
+		<div class="row">
+			<div class="col-sm-4" th:each="bankaccount : ${bankAccountlist}">
+				<div class="card mt-4">
+					<div class="card-body">
+						Id : <h5 th:text="${bankaccount.bankaccountId}" class="card-title"></h5>
+						numero : <p th:text="${bankaccount.numero}" class="card-text"></p>
+						IBAN : <p th:text="${bankaccount.IBAN}" class="card-text"></p>
+						<a href="#" th:href="@{'/delete-bankaccount/'+ ${bankaccount.bankaccountId}}" class="btn btn-success">Delete</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	
+		
+		<!--  
+		<input type="hidden" th:value="${user.userId}" name="userId">
+		<a href="#" th:href="@{'/showNewBankAccountForm/'+ ${user.userId}}" class="btn btn-success">Add BankAccount</a>
+		
+		-->
+
+
+
+		<div th:if="${totalPages > 1}">
+			<div class="row col-sm-10">
+				<div class="col-sm-2">Total Rows: [[${totalItems}]]</div>
+				<div class="col-sm-1">
+					<span th:each="i: ${#numbers.sequence(1, totalPages)}"> <a
+						th:if="${currentPage != i}" th:href="@{'/pagee/' + ${i}}">[[${i}]]</a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp;
+						&nbsp;
+					</span>
+				</div>
+				<div class="col-sm-1">
+					<a th:if="${currentPage < totalPages}"
+						th:href="@{'/pagee/' + ${currentPage + 1}}">Next</a> <span
+						th:unless="${currentPage < totalPages}">Next</span>
+				</div>
+
+				<div class="col-sm-1">
+					<a th:if="${currentPage < totalPages}"
+						th:href="@{'/pagee/' + ${totalPages}}">Last</a> <span
+						th:unless="${currentPage < totalPages}">Last</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

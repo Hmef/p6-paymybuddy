@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Add New Bank Account </title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/menu"></th:block>
+
+
+	<div class="container">
+		<div
+			style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 24px; padding: 24px;">
+			
+			<!-- <div th:value="${user.userId}" th:text="${user.email}"></div>  -->
+			
+			<div class="card">
+				<div class="card-header">
+					<i class="fa fa-user"></i> Add New Bank Account
+				</div>
+				
+				
+				
+				<div class="card-block" style="padding: 24px;">
+				
+					<form th:action="@{/saveBankAccount}" th:object="${bankAccount}" method="post">
+						<fieldset>
+						
+						<div class="form-group">
+								<select class="custom-select" name="user">
+									<option selected>Select User</option>
+									<option th:each="user : ${userList}"
+										th:value="${user.userId}"
+										th:text="${user.email}"></option>
+								</select>
+							</div>
+						
+						
+							<div class="form-group">
+								<label for="numero">Numero</label> <input type="number"
+									class="form-control" id="numero" name="numero">
+							</div>
+
+							<div class="form-group">
+								<label for="IBAN">IBAN</label> <input type="number"
+									class="form-control" id="IBAN" name="IBAN">
+							</div>
+
+
+							<div class="form-actions" style="margin-top: 12px;">
+								<button type="submit" class="btn btn-success">Add
+									BanckAccount</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

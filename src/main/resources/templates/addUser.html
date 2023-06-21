@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title th:utext="${title}"></title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/menu"></th:block>
+
+	<div class="container">
+		<h1>Add New User</h1>
+
+		<form th:action="@{/addUser}" th:object="${user}" method="post">
+			First Name :
+			<input type="text" th:field="*{firstname}"> 
+			Last Name: 
+			<input type="text" th:field="*{lastname}">
+			Birthdate: 
+			<input type="text" th:field="*{birthdate}">
+			Email : 
+			<input type="text" th:field="*{email}">
+			password :
+			<input type="text" th:field="*{password}">
+			Phone:
+			<input type="text" th:field="*{phone}">
+			Address
+			<input type="text" th:field="*{address}">
+			Solde : 
+			<input type="text" th:field="*{solde}">
+			
+			<input type="submit" value="Create" />
+
+		</form>
+
+
+
+	</div>
+</body>
+</html>

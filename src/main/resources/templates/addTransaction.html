@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title th:utext="${addTransaction}"></title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/menu"></th:block>
+
+	<div class="container">
+		<h1>Add a Transaction</h1>
+
+		<form th:action="@{/addTransaction}" th:object="${transactionForm}" method="post">
+			Numero :
+			<input type="text" th:field="*{numero}" /> 
+			Date Transaction : 
+			<input type="date" th:field="*{dateTransaction}" />
+			Amount:
+			<input type="text"th:field="*{amount}" />
+			<input type="submit" value="Create" />
+
+		</form>
+		
+		<br/>
+		
+		<div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+         ...
+       </div>
+
+
+
+
+	</div>
+</body>
+</html>

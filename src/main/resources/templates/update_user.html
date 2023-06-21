@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Update User</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<!-- Include _menu.html -->
+	<th:block th:include="/menu"></th:block>
+	
+	<div class="container">
+		<div
+			style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 24px; padding: 24px;">
+			<div class="card">
+				<div class="card-header">
+					<i class="fa fa-user"></i> Sign Up
+				</div>
+				<div class="card-block" style="padding: 24px;">
+					<form th:action="@{/updateUser}" method="post">
+						<fieldset>
+
+							<div class="form-group">
+							
+							<input type="hidden" th:value="${user.userId}" name="userId">
+							
+								<label for="firstname">FirstName</label> <input type="text"
+									class="form-control" id="firstname" name="firstname"
+									th:value="${user.firstname}">
+							</div>
+
+							<div class="form-group">
+								<label for="lastname">LastName</label> <input type="text"
+									class="form-control" id="lastname" name="lastname"
+									th:value="${user.lastname}">
+							</div>
+							
+							<div class="form-group">
+								<label for="birthdate">Birthdate</label> <input type="date"
+									class="form-control" id="birthdate" name="birthdate"
+									th:value="${user.birthdate}">
+							</div>
+							
+							<div class="form-group">
+								<label for="phone">Phone</label> <input type="number"
+									class="form-control" id="phone" name="phone"
+									th:value="${user.phone}">
+							</div>
+							
+							<div class="form-group">
+								<label for="address">Address</label> <input type="address"
+									class="form-control" id="address" name="address"
+									th:value="${user.address}">
+							</div>
+							
+							<div class="form-group">
+								<label for="solde">Solde</label> <input type="number"
+									class="form-control" id="solde" name="solde"
+									th:value="${user.solde}">
+							</div>
+
+							<div class="form-group">
+								<label for="email">Email</label> <input type="email"
+									class="form-control" id="email" name="email"
+									th:value="${user.email}">
+							</div>
+
+							<div class="form-group">
+								<label for="password">Password</label> <input type="password"
+									class="form-control" id="password" name="password"
+									th:value="${user.password}">
+							</div>
+
+
+							<div class="form-actions" style="margin-top: 12px;">
+								<button type="submit" class="btn btn-success">Update</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

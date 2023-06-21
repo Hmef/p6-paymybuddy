@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title th:utext="${title}"></title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/menu"></th:block>
+
+	
+	
+	<div class="container my-2">
+	
+	<label for="exampleColorInput" class="form-label">Color picker</label>
+	
+	Color picker
+	<input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color">
+	
+	<h1>User List</h1>
+	
+			
+
+		<table border="1" class = "table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">First Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">Birthdate</th>
+					<th scope="col">Email</th>
+					<th scope="col">Phone</th>
+					<th scope="col">Address</th>
+					<th scope="col">Solde</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${userList}">
+					<th scope="row" th:text="${user.userId}"></th>
+					<td th:text="${user.firstname}"></td>
+					<td th:text="${user.lastname}"></td>
+					<td th:text="${user.birthdate}"></td>
+					<td th:text="${user.email}"></td>
+					<td th:text="${user.phone}"></td>
+					<td th:text="${user.address}"></td>
+					<td th:text="${user.solde}"></td>
+					<td>
+						<a href="#" th:href="@{'/delete-User/'+ ${user.userId}}" class="btn btn-success">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+	</div>
+	
+</body>
+</html>
