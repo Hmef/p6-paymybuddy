@@ -49,6 +49,11 @@
 										th:text="${user.email}"></option>
 								</select>
 							</div>
+							<div class="form-group">
+							<input type="number" class="form-control" name="amount"/>
+							</div>
+							
+							<!--  
 
 							<div class="form-group">
 								<select class="custom-select" name="amount">
@@ -57,11 +62,11 @@
 										th:value="${transaction.transactionId}"
 										th:text="${transaction.amount}"></option>
 								</select>
-							</div>
+							</div> -->
 
 
 							<div class="form-actions" style="margin-top: 12px;">
-								<button type="submit" class="btn btn-success"> Pay </button>
+								<button type="submit" class="btn btn-success"> Send Money </button> <!-- make transaction -->
 							</div>
 						</fieldset>
 					</form>
