@@ -61,9 +61,9 @@ public class BankAccountController {
 		
 		model.addAttribute("bankAccountList", bankAccountService.findByUser(user.getUserId()));
 		
-		System.out.println(" user.getFirstname() =============> " + user.getFirstname());
+		System.out.println("user.getFirstname() =============> " + user.getFirstname());
 		
-		System.out.println(" user.getUserId() =============> " + user.getUserId());
+		System.out.println("user.getUserId() =============> " + user.getUserId());
 		
 		return "profil";
 	}
