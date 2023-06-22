@@ -45,6 +45,7 @@
 							<div class="form-group">
 								<select class="custom-select" name="user">
 									<option selected>Select A Connection</option>
+									<option> User1Test </option>
 									<option th:each="user : ${userList}" th:value="${user.userId}"
 										th:text="${user.email}"></option>
 								</select>
