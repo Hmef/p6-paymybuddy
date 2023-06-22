@@ -48,8 +48,6 @@ public class UserController {
 		return mv;
 	}
 	
-	
-	
 	@GetMapping(value = "/showNewUserForm")
 	public String showNewUserForm(Model model) {
 		
@@ -73,7 +71,6 @@ public class UserController {
 		
 		return "redirect:/";
 	}
-	
 	
 	@GetMapping(value = "/showUpdateForm/{userId}")
 	public String showUpdateForm(@PathVariable(value = "userId") long userId, Model model) {
@@ -112,7 +109,6 @@ public class UserController {
 		return "addNewConnection";
 	}
 	
-	
 	@GetMapping("/page/{pageNo}")
 	public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model) {
 		
@@ -130,8 +126,6 @@ public class UserController {
 		
 		return "home";
 	}
-	    
-
 	
 	
 	
