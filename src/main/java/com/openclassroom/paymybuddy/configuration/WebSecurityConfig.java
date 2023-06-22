@@ -36,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http
 			.authorizeHttpRequests()
-			.antMatchers("/login", "/logOff").permitAll() // à modifier après, pour accéder à tous les pages, l'utilisateur doit sse connecter 
+			.antMatchers("/login", "/logOff").permitAll() // à modifier après, pour accéder à tous les pages, l'utilisateur doit se connecter 
 			.anyRequest().authenticated()
 			.and()
 			.formLogin()
